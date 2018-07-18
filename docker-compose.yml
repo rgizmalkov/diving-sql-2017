@@ -1,0 +1,15 @@
+version: "3"
+services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_USER=pgs
+      - POSTGRES_PASSWORD=pgs
+      - POSTGRES_DB=db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ~/Documents/dev/local/diving-into-sql-2017/postgres/lib:/var/lib/postgresql/10/main
+      - ~/Documents/dev/local/diving-into-sql-2017/postgres/log:/var/log/postgresql
+      - ~/Documents/dev/local/diving-into-sql-2017/postgres/etc:/etc/postgresql
+      - ~/Documents/dev/local/diving-into-sql-2017/postgres/db-scripts/pigs.sql:/docker-entrypoint-initdb.d/pigs.sql
